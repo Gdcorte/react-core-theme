@@ -1,0 +1,60 @@
+{
+  "name": "@gdcorte/react-core-theme",
+  "version": "1.0.0",
+  "repository": "https://github.com/Gdcorte/react-core-theme.git",
+  "homepage": "https://github.com/Gdcorte/react-core-theme#readme",
+  "bugs": {
+    "url": "https://github.com/Gdcorte/react-core-theme/issues"
+  },
+  "description": "Base Theming strategy for other packages",
+  "author": "Gustavo <gustavodacorte@gmail.com>",
+  "license": "MIT",
+  "private": false,
+  "peerDependencies": {
+    "react": ">= 18",
+    "styled-components": ">= 5"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.20.7",
+    "@rollup/plugin-commonjs": "^21.1.0",
+    "@rollup/plugin-node-resolve": "^13.3.0",
+    "@rollup/plugin-typescript": "10.0.1",
+    "@storybook/addon-actions": "^6.5.15",
+    "@storybook/addon-essentials": "^6.5.15",
+    "@storybook/addon-interactions": "^6.5.15",
+    "@storybook/addon-links": "^6.5.15",
+    "@storybook/addons": "^6.5.15",
+    "@storybook/react": "^6.5.15",
+    "@storybook/testing-library": "^0.0.13",
+    "@types/react": "^17.0.52",
+    "@types/styled-components": "^5.1.26",
+    "babel-loader": "^8.3.0",
+    "moment": "^2.29.4",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-is": "^18.2.0",
+    "require-from-string": "^2.0.2",
+    "rollup": "^2.79.1",
+    "rollup-plugin-dts": "^4.2.3",
+    "storybook-addon-styled-component-theme": "^2.0.0",
+    "styled-components": "^5.3.6",
+    "tslib": "^2.4.1",
+    "typescript": "^4.9.4",
+    "webpack": "^5.75.0"
+  },
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "files": [
+    "dist"
+  ],
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "dev": "CHOKIDAR_USEPOLLING=true start-storybook -p 6006 -s src --ci",
+    "build-storybook": "build-storybook",
+    "build": "rollup -c",
+    "build-dev": "rollup -c -w",
+    "build-test": "npm run build",
+    "audit-fix": "",
+    "publish": "rollup -c && npm publish"
+  }
+}
