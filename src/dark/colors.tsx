@@ -1,25 +1,29 @@
-import { ThemeColors } from "../interfaces"
+import { InputColors } from "../interfaces";
 
-export const Green: ThemeColors ={
-    primary: '#B4F8C8',
-    secondary: '#b4f8ea',
-    color: 'green',
-}
+export const Green: InputColors = {
+  primary: "#b4f8c8",
+  secondary: "#b4f8ea",
+  name: "Green",
+};
 
-export const Pink: ThemeColors ={
-    primary: '#ffaaff',
-    secondary: '#ddaaff',
-    color: 'pink',
-}
+export const Pink: InputColors = {
+  primary: "#ffaaff",
+  secondary: "#ddaaff",
+  name: "Pink",
+};
 
-export const Blue: ThemeColors ={
-    primary: '#A0E7E5',
-    secondary: '#d3ffff',
-    color: 'blue',
-}
+export const Blue: InputColors = {
+  primary: "#a0e7e5",
+  secondary: "#d3ffff",
+  name: "Blue",
+};
 
-export const Yellow: ThemeColors ={
-    primary: '#ffefaa',
-    secondary: '#ccbbaa',
-    color: 'yellow',
-}
+export const Yellow: InputColors = {
+  primary: "#ffefaa",
+  secondary: "#ccbbaa",
+  name: "Yellow",
+};
+
+const DarkColors = [Green, Pink, Blue, Yellow];
+
+export default DarkColors;

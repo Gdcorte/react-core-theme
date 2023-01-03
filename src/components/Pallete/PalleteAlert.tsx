@@ -1,7 +1,6 @@
 import { FunctionComponent } from "react";
-
 import styled, { useTheme } from "styled-components";
-import { BaseColorSystem } from "../../interfaces";
+import { BaseAlerts } from "../../interfaces";
 import { findBestContrast } from "../../utils";
 
 const StyledBlock = styled.div`
@@ -21,13 +20,13 @@ const StyledBlock = styled.div`
 const StyledContainer = styled.div``;
 
 interface PalleteColor {
-  colorName: BaseColorSystem;
+  colorName: BaseAlerts;
 }
 
 const PalleteColor: FunctionComponent<PalleteColor> = ({ colorName }) => {
-  const { colors, fonts } = useTheme();
+  const { alerts, fonts } = useTheme();
 
-  const myJsxElement = Object.entries(colors[colorName]).map((value) => {
+  const myJsxElement = Object.entries(alerts[colorName]).map((value) => {
     const [presetName, presetColor]: [string, string] = value;
 
     return (

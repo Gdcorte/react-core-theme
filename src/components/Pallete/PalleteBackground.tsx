@@ -1,7 +1,6 @@
 import { FunctionComponent } from "react";
 
 import styled, { useTheme } from "styled-components";
-import { BaseColorSystem } from "../../interfaces";
 import { findBestContrast } from "../../utils";
 
 const StyledBlock = styled.div`
@@ -20,19 +19,15 @@ const StyledBlock = styled.div`
 
 const StyledContainer = styled.div``;
 
-interface PalleteColor {
-  colorName: BaseColorSystem;
-}
+const PalleteColor: FunctionComponent = ({}) => {
+  const { background, fonts } = useTheme();
 
-const PalleteColor: FunctionComponent<PalleteColor> = ({ colorName }) => {
-  const { colors, fonts } = useTheme();
-
-  const myJsxElement = Object.entries(colors[colorName]).map((value) => {
+  const myJsxElement = Object.entries(background).map((value) => {
     const [presetName, presetColor]: [string, string] = value;
 
     return (
       <StyledBlock
-        key={`${colorName}-${presetName}`}
+        key={`bg-${presetName}`}
         style={{
           backgroundColor: presetColor,
           color: findBestContrast(presetColor, fonts),
@@ -47,7 +42,7 @@ const PalleteColor: FunctionComponent<PalleteColor> = ({ colorName }) => {
   return (
     <StyledContainer>
       <div>
-        {colorName}
+        Background
         {myJsxElement}
       </div>
     </StyledContainer>
