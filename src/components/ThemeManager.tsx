@@ -1,28 +1,33 @@
 import { ThemeProvider } from "styled-components";
 
 import { FunctionComponent, useMemo } from "react";
-import { bundleThemes } from "../bundler";
+import { bundleBaseThemes } from "../utils/bundler";
 
 interface ThemeManagerProps {
   children: JSX.Element;
-  color: string;
-  type: string;
+  colorName: string;
+  typeName: string;
 }
 
 const ThemeManager: FunctionComponent<ThemeManagerProps> = ({
   children,
-  color,
-  type,
+  colorName,
+  typeName,
 }) => {
   const themes = useMemo(() => {
-    return bundleThemes();
+    return bundleBaseThemes();
   }, []);
 
   return (
     <ThemeProvider
       theme={{
-        presets: themes[type].presets,
-        theme: themes[type].themes[color],
+        presets: themes[typeName].presets,
+        fonts: themes[typeName].fonts,
+        background: themes[typeName].background,
+        alerts: themes[typeName].alerts,
+        colors: themes[typeName].colors[colorName],
+        typeName,
+        colorName,
       }}
     >
       {children}

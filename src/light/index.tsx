@@ -1,1 +1,1 @@
-export * as lightColors from './colors'
+export { default as lightColors } from "./colors";
