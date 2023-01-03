@@ -2,25 +2,34 @@ import { addDecorator } from "@storybook/react";
 import { withThemesProvider } from "storybook-addon-styled-component-theme";
 import { ThemeProvider } from "styled-components";
 
-import {
-  bundleThemes
-} from '../src';
+import { bundleBaseThemes } from "../src";
 
-let allThemes = bundleThemes()
-let darkThemes = Object.values(allThemes.dark.themes).map((value)=>{
+let allThemes = bundleBaseThemes()
+
+let darkThemes = Object.keys(allThemes.dark.colors).map((value)=>{
   return {
     presets: allThemes.dark.presets,
-    theme: value,
-    name: value.name,
+    fonts: allThemes.dark.fonts,
+    background: allThemes.dark.background,
+    alerts: allThemes.dark.alerts,
+    colors: allThemes.dark.colors[value],
+    typeName: 'Dark',
+    colorName: value,
+    name: `Dark-${value}`,
   }
 
 })
 
-let lightThemes = Object.values(allThemes.light.themes).map((value)=>{
+let lightThemes = Object.keys(allThemes.light.colors).map((value)=>{
   return {
     presets: allThemes.light.presets,
-    theme: value,
-    name: value.name,
+    fonts: allThemes.light.fonts,
+    background: allThemes.light.background,
+    alerts: allThemes.light.alerts,
+    colors: allThemes.light.colors[value],
+    typeName: 'Light',
+    colorName: value,
+    name: `Light-${value}`,
   }
 })
 
