@@ -1,13 +1,5 @@
-export * from "./bundler";
-export * from "./components";
-export * from "./helpers";
-export type {
-  BaseTheme,
-  defaultAlertsType,
-  defaultColorsType,
-  defaultThemeTypesType,
-  isAlertType,
-  isColorType,
-  isThemeType,
-  OutputTheme,
-} from "./interfaces";
+export { ThemeManager, ThemePallete } from "./components";
+export { darkColors } from "./dark";
+export * from "./interfaces";
+export { lightColors } from "./light";
+export * from "./utils";
