@@ -1,6 +1,6 @@
 import {
-  InputAlerts,
-  InputColors,
+  AlertColors,
+  ColorSystem,
   ThemeAlerts,
   ThemeColors,
 } from "../interfaces";
@@ -60,7 +60,7 @@ export function buildActionables(base: string): BaseActionablePresets {
   return actionableColor;
 }
 
-export function buildAlertPresets(alerts: InputAlerts): ThemeAlerts {
+export function buildAlertPresets(alerts: AlertColors): ThemeAlerts {
   const arrayPresets: Partial<ThemeAlerts> = {};
 
   Object.keys(alerts).forEach((value) => {
@@ -75,7 +75,7 @@ export function buildAlertPresets(alerts: InputAlerts): ThemeAlerts {
   return arrayPresets as ThemeAlerts;
 }
 
-export function buildColorPresets(color: InputColors): ThemeColors {
+export function buildColorPresets(color: ColorSystem): ThemeColors {
   const colorPresets: Partial<ThemeColors> = {};
 
   Object.keys(color).forEach((value) => {

@@ -1,13 +1,15 @@
 import { darkColors } from "../dark";
-import { InputColors } from "../interfaces";
-import { BaseInputAlerts, InputAlerts } from "../interfaces/alerts";
+import { ColorSystem, FontSystem } from "../interfaces";
+import { AlertColors, BaseAlertColors } from "../interfaces/alerts";
 import {
+  BaseBundledTheme,
   BundledColors,
   BundledPresets,
   BundledTheme,
   BundledType,
+  MultiThemeConfiguration,
 } from "../interfaces/bundle";
-import { ThemeTypes, ThemeTypesBase } from "../interfaces/types";
+import { ThemeTypesBase } from "../interfaces/types";
 import { lightColors } from "../light";
 import {
   buildAlertPresets,
@@ -22,7 +24,7 @@ const baseBackgrounds: ThemeTypesBase = {
 
 const baseFonts = baseBackgrounds;
 
-const baseAlerts: BaseInputAlerts = {
+const baseAlerts: BaseAlertColors = {
   info: "#70bbfd",
   success: "#4ce1b6",
   warning: "#f6da6e",
@@ -30,10 +32,10 @@ const baseAlerts: BaseInputAlerts = {
 };
 
 export function bundleThemeType(
-  fonts: ThemeTypes,
+  fonts: FontSystem,
   background: string,
-  alerts: InputAlerts,
-  colors: InputColors[],
+  alerts: AlertColors,
+  colors: ColorSystem[],
   typeName: string
 ): BundledType {
   let presets: BundledPresets = {};
@@ -45,6 +47,7 @@ export function bundleThemeType(
 
   return {
     fonts: Object.values(fonts),
+    fontSystem: fonts,
     background: buildBackgroundPresets(background),
     alerts: buildAlertPresets(alerts),
     colors: colorBundle,
@@ -53,7 +56,7 @@ export function bundleThemeType(
   };
 }
 
-export function bundleBaseThemes(): BundledTheme {
+export function bundleBaseThemes(): BaseBundledTheme {
   let themes = {
     light: bundleThemeType(
       baseFonts,
@@ -70,6 +73,26 @@ export function bundleBaseThemes(): BundledTheme {
       "Dark"
     ),
   };
+
+  return themes;
+}
+
+export function bundleCustomThemes(
+  config: MultiThemeConfiguration
+): BundledTheme {
+  let presets = Object.keys(config);
+  let themes: BundledTheme = {};
+
+  presets.forEach((themePreset) => {
+    let currentThemeConfig = config[themePreset];
+    themes[themePreset] = bundleThemeType(
+      currentThemeConfig.fonts,
+      currentThemeConfig.background,
+      currentThemeConfig.alerts,
+      currentThemeConfig.colors,
+      themePreset
+    );
+  });
 
   return themes;
 }

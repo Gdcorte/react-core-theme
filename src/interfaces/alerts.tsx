@@ -1,24 +1,29 @@
 import { AlertPresets } from "./presets";
 
-export const baseAlerts = ["info", "success", "warning", "danger"] as const;
-export type BaseAlerts = typeof baseAlerts[number];
+export const basicAlertNames = [
+  "info",
+  "success",
+  "warning",
+  "danger",
+] as const;
+export type BaseAlertTypes = typeof basicAlertNames[number];
 
-export type BaseInputAlerts = {
-  [key in BaseAlerts]: string;
+export type BaseAlertColors = {
+  [key in BaseAlertTypes]: string;
 };
 
-export interface InputAlerts extends BaseInputAlerts {
+export type AlertColors = {
   [key: string]: string;
-}
+} & BaseAlertColors;
 
 export type BaseThemeAlerts = {
-  [key in BaseAlerts]: AlertPresets;
+  [key in BaseAlertTypes]: AlertPresets;
 };
 
-export interface ThemeAlerts extends BaseThemeAlerts {
+export type ThemeAlerts = {
   [key: string]: AlertPresets;
-}
+} & BaseThemeAlerts;
 
-export function isAlertType(option: string): option is BaseAlerts {
-  return baseAlerts.includes(option as BaseAlerts);
+export function isBasicAlertType(option: string): option is BaseAlertTypes {
+  return basicAlertNames.includes(option as BaseAlertTypes);
 }

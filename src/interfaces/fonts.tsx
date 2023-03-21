@@ -1,5 +1,9 @@
-import { BaseTypes } from "./types";
+import { BasicThemeSystemType } from "./types";
 
-export type BaseFonts = {
-  [key in BaseTypes]: string;
+export type BasicThemeFonts = {
+  [key in BasicThemeSystemType]: string;
 };
+
+export type FontSystem = {
+  [key: string]: string;
+} & BasicThemeFonts;

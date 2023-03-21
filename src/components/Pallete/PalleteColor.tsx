@@ -1,7 +1,7 @@
 import { FunctionComponent } from "react";
 
 import styled, { useTheme } from "styled-components";
-import { BaseColorSystem } from "../../interfaces";
+import { BasicColorSystemType } from "../../interfaces/colors";
 import { findBestContrast } from "../../utils";
 
 const StyledBlock = styled.div`
@@ -21,7 +21,7 @@ const StyledBlock = styled.div`
 const StyledContainer = styled.div``;
 
 interface PalleteColor {
-  colorName: BaseColorSystem;
+  colorName: BasicColorSystemType;
 }
 
 const PalleteColor: FunctionComponent<PalleteColor> = ({ colorName }) => {

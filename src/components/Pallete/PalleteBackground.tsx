@@ -19,7 +19,7 @@ const StyledBlock = styled.div`
 
 const StyledContainer = styled.div``;
 
-const PalleteColor: FunctionComponent = ({}) => {
+const PalleteBackground: FunctionComponent = ({}) => {
   const { background, fonts } = useTheme();
 
   const myJsxElement = Object.entries(background).map((value) => {
@@ -49,4 +49,4 @@ const PalleteColor: FunctionComponent = ({}) => {
   );
 };
 
-export default PalleteColor;
+export default PalleteBackground;

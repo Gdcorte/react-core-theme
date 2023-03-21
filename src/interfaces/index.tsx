@@ -1,25 +1,14 @@
-export { baseAlerts, isAlertType } from "./alerts";
-export type {
-  BaseAlerts,
-  BaseThemeAlerts,
-  InputAlerts,
-  ThemeAlerts,
-} from "./alerts";
+export { basicAlertNames, isBasicAlertType } from "./alerts";
+export type { AlertColors, ThemeAlerts } from "./alerts";
 export type {
   BundledColors,
   BundledPresets,
   BundledTheme,
   BundledType,
 } from "./bundle";
-export { baseColorSystem, isColorType } from "./colors";
-export type {
-  BaseColorSystem,
-  BaseThemeColors,
-  InputColors,
-  RgbColor,
-  ThemeColors,
-} from "./colors";
-export type { BaseFonts } from "./fonts";
+export { basicColorSystem, isBasicColorSystem } from "./colors";
+export type { ColorSystem, RgbColor, ThemeColors } from "./colors";
+export type { FontSystem } from "./fonts";
 export { actionablePresets, isActionablePreset, shadePresets } from "./presets";
 export type {
   AlertPresets,
@@ -30,5 +19,5 @@ export type {
 } from "./presets";
 export type { ThemeActionsInterface, ThemeStoreInterface } from "./redux";
 export type { BaseTheme } from "./theme";
-export { baseTypes, isThemeType } from "./types";
+export { basicThemeSystemTypes, isBasicThemeType } from "./types";
 export type { ThemeTypes } from "./types";

@@ -1,5 +1,56 @@
-export { ThemeManager, ThemePallete } from "./components";
+export {
+  BaseThemesManager,
+  MultiThemesManager,
+  SingleThemeManager,
+  ThemePallete,
+} from "./components";
 export { darkColors } from "./dark";
-export * from "./interfaces";
+export {
+  actionablePresets,
+  basicAlertNames,
+  basicColorSystem,
+  basicThemeSystemTypes,
+  isActionablePreset,
+  isBasicAlertType,
+  isBasicColorSystem,
+  isBasicThemeType,
+  shadePresets,
+} from "./interfaces";
+export type {
+  AlertColors,
+  AlertPresets,
+  BackgroundPresets,
+  BaseActionablePresets,
+  BaseShadePresets,
+  BaseTheme,
+  BundledColors,
+  BundledPresets,
+  BundledTheme,
+  BundledType,
+  ColorPresets,
+  ColorSystem,
+  FontSystem,
+  RgbColor,
+  ThemeActionsInterface,
+  ThemeAlerts,
+  ThemeColors,
+  ThemeStoreInterface,
+  ThemeTypes,
+} from "./interfaces";
 export { lightColors } from "./light";
-export * from "./utils";
+export {
+  autoMix,
+  brightnessIndex,
+  buildActionables,
+  buildAlertPresets,
+  buildBackgroundPresets,
+  buildColorPresets,
+  buildShades,
+  bundleBaseThemes,
+  bundleCustomThemes,
+  bundleThemeType,
+  findBestContrast,
+  hexToRgbColor,
+  mix,
+  rgbToHex,
+} from "./utils";

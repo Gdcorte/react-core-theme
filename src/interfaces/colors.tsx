@@ -1,32 +1,34 @@
 import { ColorPresets } from "./presets";
 
-export const baseColorSystem = ["primary", "secondary"] as const;
-export type BaseColorSystem = typeof baseColorSystem[number];
+export const basicColorSystem = ["primary", "secondary"] as const;
+export type BasicColorSystemType = typeof basicColorSystem[number];
 
-export interface RgbColor {
+export type RgbColor = {
   [key: string]: number;
   red: number;
   green: number;
   blue: number;
-}
-
-export type BaseInputColors = {
-  [key in BaseColorSystem]: string;
 };
 
-export interface InputColors extends BaseInputColors {
+export type BaseColorSystem = {
+  [key in BasicColorSystemType]: string;
+};
+
+export type ColorSystem = {
   [key: string]: string;
   name: string;
-}
+} & BaseColorSystem;
 
 export type BaseThemeColors = {
-  [key in BaseColorSystem]: ColorPresets;
+  [key in BasicColorSystemType]: ColorPresets;
 };
 
-export interface ThemeColors extends BaseThemeColors {
+export type ThemeColors = {
   [key: string]: ColorPresets;
-}
+} & BaseThemeColors;
 
-export function isColorType(option: string): option is BaseColorSystem {
-  return baseColorSystem.includes(option as BaseColorSystem);
+export function isBasicColorSystem(
+  option: string
+): option is BasicColorSystemType {
+  return basicColorSystem.includes(option as BasicColorSystemType);
 }
