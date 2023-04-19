@@ -1,11 +1,11 @@
 import { ThemeProvider } from "styled-components";
 
-import { FunctionComponent } from "react";
+import { FunctionComponent, ReactNode } from "react";
 import { AlertColors, ColorSystem, FontSystem } from "../../interfaces";
 import { bundleThemeType } from "../../utils/bundler";
 
 interface SingleThemeManagerProps {
-  children: JSX.Element;
+  children: ReactNode;
   fontSystem: FontSystem;
   alertColors: AlertColors;
   colorSystem: ColorSystem[];

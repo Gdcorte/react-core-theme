@@ -1,11 +1,11 @@
 import { ThemeProvider } from "styled-components";
 
-import { FunctionComponent, useMemo } from "react";
+import { FunctionComponent, ReactNode, useMemo } from "react";
 import { isBasicThemeType } from "../../interfaces";
 import { bundleBaseThemes } from "../../utils/bundler";
 
 interface ThemeManagerProps {
-  children: JSX.Element;
+  children: ReactNode;
   colorName: string;
   typeName: string;
 }

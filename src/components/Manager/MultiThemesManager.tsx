@@ -1,10 +1,10 @@
 import { ThemeProvider } from "styled-components";
 
-import { FunctionComponent } from "react";
+import { FunctionComponent, ReactNode } from "react";
 import { BundledTheme } from "../../interfaces";
 
 interface ThemeManagerProps {
-  children: JSX.Element;
+  children: ReactNode;
   themes: BundledTheme;
   type: string;
   color: string;
