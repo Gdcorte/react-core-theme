@@ -1,11 +1,12 @@
-import { hexToRgbColor } from "./colors/raw";
+import { rgbKeys } from "../interfaces/models";
+import { hexToRgb } from "./conversion";
 
 export function luminanceIndex(color: string): number {
-  // Source: https://www.w3.org/TR/WCAG20/#audiodescdef
-  const rgbColor = hexToRgbColor(color);
+  // https://www.w3.org/WAI/GL/wiki/Relative_luminance
+  const rgbColor = hexToRgb(color);
 
   // Normalize
-  Object.keys(rgbColor).map((value: string) => {
+  rgbKeys.map((value) => {
     let intermediateColor = rgbColor[value] / 255;
     rgbColor[value] =
       intermediateColor <= 0.03928
