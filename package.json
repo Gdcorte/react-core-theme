@@ -16,16 +16,20 @@
   },
   "devDependencies": {
     "@babel/core": "^7.20.7",
+    "@chromatic-com/storybook": "^1.6.1",
     "@rollup/plugin-commonjs": "^21.1.0",
     "@rollup/plugin-node-resolve": "^13.3.0",
     "@rollup/plugin-typescript": "10.0.1",
-    "@storybook/addon-actions": "^6.5.15",
-    "@storybook/addon-essentials": "^6.5.15",
-    "@storybook/addon-interactions": "^6.5.15",
-    "@storybook/addon-links": "^6.5.15",
-    "@storybook/addons": "^6.5.15",
-    "@storybook/react": "^6.5.15",
-    "@storybook/testing-library": "^0.0.13",
+    "@storybook/addon-essentials": "^8.2.8",
+    "@storybook/addon-interactions": "^8.2.8",
+    "@storybook/addon-links": "^8.2.8",
+    "@storybook/addon-onboarding": "^8.2.8",
+    "@storybook/addon-themes": "^8.2.8",
+    "@storybook/addon-webpack5-compiler-swc": "^1.0.5",
+    "@storybook/blocks": "^8.2.8",
+    "@storybook/react": "^8.2.8",
+    "@storybook/react-vite": "^8.2.8",
+    "@storybook/test": "^8.2.8",
     "@types/react": "^17.0.52",
     "@types/styled-components": "^5.1.26",
     "babel-loader": "^8.3.0",
@@ -36,7 +40,7 @@
     "require-from-string": "^2.0.2",
     "rollup": "^2.79.1",
     "rollup-plugin-dts": "^4.2.3",
-    "storybook-addon-styled-component-theme": "^2.0.0",
+    "storybook": "^8.2.8",
     "styled-components": "^5.3.6",
     "tslib": "^2.4.1",
     "typescript": "^4.9.4",
@@ -50,11 +54,15 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "dev": "CHOKIDAR_USEPOLLING=true start-storybook -p 6006 -s src --ci",
-    "build-storybook": "build-storybook",
+    "build-storybook": "storybook build",
     "build": "rollup -c",
     "build-dev": "rollup -c -w",
     "build-test": "npm run build",
     "audit-fix": "",
-    "release": "rollup -c && npm publish --access=public"
+    "release": "rollup -c && npm publish --access=public",
+    "storybook": "storybook dev -p 6006"
+  },
+  "dependencies": {
+    "prettier": "^3.3.3"
   }
 }

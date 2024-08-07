@@ -115,3 +115,5 @@ ignore.*
 
 # temporary
 ignore_refactor/*
+
+*storybook.log
