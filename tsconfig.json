@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     /* Visit https://aka.ms/tsconfig.json to read more about this file */
-    "target": "es2016",
+    "target": "ESNext",
     "module": "ESNext", 
     "esModuleInterop": true,
     "allowJs": true,
