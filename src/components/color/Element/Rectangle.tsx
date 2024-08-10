@@ -1,6 +1,6 @@
 import { FunctionComponent } from "react";
 import styled, { css } from "styled-components";
-import { ColorElement } from "../../interfaces/presets";
+import { ElementDisplayProps } from "./interface";
 
 const Common = css`
   position: absolute;
@@ -16,6 +16,8 @@ const Common = css`
 
 const Shade = styled.div`
   ${Common};
+
+  border-top-right-radius: 5px;
 
   left: 84px;
 `;
@@ -35,6 +37,8 @@ const Tint = styled.div`
 const Main = styled.div`
   ${Common};
 
+  border-top-left-radius: 5px;
+
   left: 0;
 `;
 
@@ -48,11 +52,9 @@ const Outline = styled.div`
   height: 32px;
 `;
 
-type Props = {
-  element: ColorElement;
-};
-
-const ColorRectangle: FunctionComponent<Props> = ({ element }) => {
+const ColorRectangle: FunctionComponent<ElementDisplayProps> = ({
+  element,
+}) => {
   return (
     <Outline
       style={{

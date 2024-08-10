@@ -1,9 +1,6 @@
+import { FunctionComponent } from "react";
 import styled, { css } from "styled-components";
-import { ColorElement } from "../../interfaces/presets";
-
-type Props = {
-  element: ColorElement;
-};
+import { ElementDisplayProps } from "./interface";
 
 const BallStyle = css`
   display: flex;
@@ -41,7 +38,7 @@ const MainBall = styled.div`
   height: 36px;
 `;
 
-const ColorBall = ({ element }: Props) => {
+const ColorBall: FunctionComponent<ElementDisplayProps> = ({ element }) => {
   return (
     <ShadeBall style={{ backgroundColor: element.shade }}>
       <ToneBall style={{ backgroundColor: element.tone }}>
