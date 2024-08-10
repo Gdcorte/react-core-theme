@@ -5,6 +5,7 @@ export * from "./presets";
 
 import {
   AlertThemes,
+  AlertVariants,
   ColorCombinationVariants,
   ColorElement,
   ColorVariants,
@@ -34,4 +35,12 @@ type BaseTheme<T> = {
     color: ColorVariants | string;
     theme: ThemeVariants | string;
   };
+};
+
+type InputSettings = {
+  primary: string;
+  background: string;
+  disabled?: string;
+  alerts?: Partial<Record<AlertVariants, string>>;
+  font: Partial<FontPreset>;
 };

@@ -6,7 +6,7 @@ import {
   ThemeVariants,
 } from "../../interfaces";
 import { contrast } from "../../utils";
-import { ColorCombination } from "../color";
+import { ChartColors, ColorCombination } from "../color";
 
 const Frame = styled.div<{ bg: string; font: string }>`
   display: flex;
@@ -14,11 +14,24 @@ const Frame = styled.div<{ bg: string; font: string }>`
 
   width: 100%;
   height: 100%;
+  gap: 12px;
+
 
   padding: 20px;
 
   background-color: ${({ bg }) => bg}};
   color: ${({ font }) => font}};
+`;
+
+const ChartAlertsFrame = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+
+  width: 100%;
+  height: 100%;
+  gap: 12px;
 `;
 
 type Props = {
@@ -41,6 +54,10 @@ const ThemePallete: FunctionComponent<Props> = ({
   return (
     <Frame bg={colors.background} font={bgContrast} className="pallete-frame">
       <ColorCombination base={colors.base} variant={combination} />
+
+      <ChartAlertsFrame>
+        <ChartColors base={colors.base} />
+      </ChartAlertsFrame>
     </Frame>
   );
 };

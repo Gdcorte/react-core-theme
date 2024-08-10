@@ -52,6 +52,8 @@ function normalizePseudoRgb(value: number, m: number) {
 }
 
 export function hslToRgb(hsl: HslColor): RgbColor {
+  hsl.hue = hsl.hue % 360;
+
   const C = (1 - Math.abs(2 * hsl.lightness - 1)) * hsl.saturation;
 
   const X = C * (1 - Math.abs(((hsl.hue / 60) % 2) - 1));

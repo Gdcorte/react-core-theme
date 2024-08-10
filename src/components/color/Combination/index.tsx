@@ -69,7 +69,7 @@ const ColorCombination: FunctionComponent<Props> = ({ base, variant }) => {
   return (
     <Frame>
       <Title>
-        <p>{firstCharToUpper(variant)}</p>
+        <p>Color Combination: {firstCharToUpper(variant)}</p>
       </Title>
 
       <ColorElement base={base} />
