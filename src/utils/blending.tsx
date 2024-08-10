@@ -1,7 +1,16 @@
+import { isString } from "../helpers";
+import { HslColor } from "../interfaces";
 import { luminanceIndex } from "./analysis";
-import { decimalToHex, hexToDecimal, hexToRgb } from "./conversion";
-import { hslToRgb } from "./conversion/hsl";
-import { rgbToHex, rgbToHsl } from "./conversion/rgb";
+import {
+  decimalToHex,
+  hexToDecimal,
+  hexToHsl,
+  hexToRgb,
+  hslToHex,
+  hslToRgb,
+  rgbToHex,
+  rgbToHsl,
+} from "./conversion";
 
 function validatePercentage(value: number): number {
   // Just assume the user is passing percentage as in 0-100
@@ -103,14 +112,17 @@ export function contrast(color: string): string {
   if (hsl.lightness > 0.6) {
     contrastHsl.lightness /= 5;
   }
-  if (hsl.lightness < 0.4) {
-    contrastHsl.lightness *= 5;
-  }
-  if (hsl.saturation >= 0.4 && hsl.saturation <= 0.6) {
-    contrastHsl.saturation /= 3;
+  if (hsl.lightness > 0.5 && hsl.lightness <= 0.6) {
+    contrastHsl.lightness /= 3;
   }
 
-  console.info("YIIHAAA", hsl, contrastHsl);
+  if (hsl.lightness > 0.4 && hsl.lightness <= 0.5) {
+    contrastHsl.lightness *= 2;
+  }
+  if (hsl.lightness <= 0.4) {
+    contrastHsl.lightness *= 5;
+  }
+
   const contrastRgb = hslToRgb(contrastHsl);
   return rgbToHex(contrastRgb);
 }
@@ -129,4 +141,24 @@ export function mix(hex: string, percentage: number = 0.1): string {
   }
 
   return tint(hex, percentage);
+}
+
+export function rotateColor(
+  color: string | HslColor,
+  degrees: number = 180
+): string {
+  let hsl = color;
+  if (isString(hsl)) {
+    hsl = hexToHsl(hsl);
+  }
+
+  let newHue = (hsl.hue + degrees) % 360;
+  if (newHue < 0) newHue += 360;
+
+  const newColor: HslColor = {
+    ...hsl,
+    hue: newHue,
+  };
+
+  return hslToHex(newColor);
 }

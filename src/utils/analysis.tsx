@@ -1,4 +1,4 @@
-import { rgbKeys } from "../interfaces/models";
+import { rgbKeys } from "../interfaces";
 import { hexToRgb } from "./conversion";
 
 export function luminanceIndex(color: string): number {

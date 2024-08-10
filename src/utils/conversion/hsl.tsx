@@ -1,4 +1,5 @@
-import { HslColor, RgbColor } from "../../interfaces/models";
+import { HslColor, RgbColor } from "../../interfaces";
+import { hexToRgb, rgbToHex, rgbToHsl } from "./rgb";
 
 function hueToPseudoRgb(hue: number, C: number, X: number): RgbColor {
   if (hue < 60) {
@@ -65,4 +66,16 @@ export function hslToRgb(hsl: HslColor): RgbColor {
     blue: normalizePseudoRgb(pseudoRgb.blue, m),
     alpha: pseudoRgb.alpha,
   };
+}
+
+export function hexToHsl(hex: string): HslColor {
+  const rgb = hexToRgb(hex);
+
+  return rgbToHsl(rgb);
+}
+
+export function hslToHex(hsl: HslColor): string {
+  const rgb = hslToRgb(hsl);
+
+  return rgbToHex(rgb);
 }
