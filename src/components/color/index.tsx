@@ -1,3 +1,2 @@
-export { default as ColorBall } from "./Ball"
-export { default as ColorRectangle } from "./Rec"
-
+export { default as ColorCombination } from "./Combination";
+export { ColorBall, ColorRectangle, SmartColorElement } from "./Element";
