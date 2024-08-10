@@ -1,8 +1,11 @@
 // Definitions
+export * from "./charts";
+export * from "./models";
+export * from "./presets";
 
 import {
   AlertThemes,
-  BaseColorCombination,
+  ColorCombinationVariants,
   ColorElement,
   ColorVariants,
   ElevationTheme,
@@ -27,7 +30,7 @@ type BaseTheme<T> = {
   margins: MarginPreset;
   charts: ChartThemes;
   presets: {
-    combination: BaseColorCombination | string;
+    combination: ColorCombinationVariants | string;
     color: ColorVariants | string;
     theme: ThemeVariants | string;
   };

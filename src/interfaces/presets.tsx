@@ -2,19 +2,19 @@
 // Theme Presets
 // /////////////////
 export const themeVariants = ["light", "dark"] as const;
-export type ThemeVariants = typeof themeVariants[number];
+export type ThemeVariants = (typeof themeVariants)[number];
 
 // /////////////////
 // Color Presets
 // /////////////////
 export const colorVariants = ["green", "yellow", "blue", "pink"] as const;
-export type ColorVariants = typeof colorVariants[number];
+export type ColorVariants = (typeof colorVariants)[number];
 
 // /////////////////
 // Window Presets
 // /////////////////
 export const windowVariants = ["phone", "tablet", "desktop", "uhd"] as const;
-export type WindowVariants = typeof windowVariants[number];
+export type WindowVariants = (typeof windowVariants)[number];
 
 export type WindowSizes = Record<WindowVariants, number>;
 
@@ -22,7 +22,7 @@ export type WindowSizes = Record<WindowVariants, number>;
 // Sizes Presets
 // /////////////////
 export const sizeVariants = ["sm", "md", "lg", "xl"] as const;
-export type SizeVariants = typeof sizeVariants[number];
+export type SizeVariants = (typeof sizeVariants)[number];
 
 // /////////////////
 // Fonts Presets
@@ -58,7 +58,7 @@ export type ColorElement = {
 // Elevation Presets
 // ////////////////
 export const elevationPresets = ["lower", "neutral", "higher"] as const;
-export type ElevationVariants = typeof elevationPresets[number];
+export type ElevationVariants = (typeof elevationPresets)[number];
 
 export type ElevationTheme = Record<ElevationVariants, string>;
 
@@ -80,13 +80,13 @@ export const alertTypes = [
   "warning",
   "danger",
 ] as const;
-export type AlertVariants = typeof alertTypes[number];
+export type AlertVariants = (typeof alertTypes)[number];
 export type AlertThemes = Record<AlertVariants, ColorElement>;
 
 // ////////////////
 // Color Combinations
 // ////////////////
-export const ColorCombinationPresets = [
+export const colorCombinationVariants = [
   "monochromatic",
   "complementary",
   "complementary_split",
@@ -95,29 +95,63 @@ export const ColorCombinationPresets = [
   "triadic",
   "tetradic",
 ] as const;
-export type BaseColorCombination = typeof ColorCombinationPresets[number];
+export type ColorCombinationVariants =
+  (typeof colorCombinationVariants)[number];
 
-export type Monochromatic = Record<"light" | "base" | "heavy", ColorElement>;
+export const monochromaticColorVariants = ["light", "base", "heavy"] as const;
+export type MonochromaticColorVariants =
+  (typeof monochromaticColorVariants)[number];
+export type Monochromatic = Record<MonochromaticColorVariants, ColorElement>;
 
-export type Complementary = Record<"base" | "complement", ColorElement>;
+export const complementaryColorVariants = ["base", "complement"] as const;
+export type ComplementaryColorVariants =
+  (typeof complementaryColorVariants)[number];
+export type Complementary = Record<ComplementaryColorVariants, ColorElement>;
 
+export const splitComplementaryColorVariants = [
+  "base",
+  "split",
+  "complement",
+] as const;
+export type SplitComplementaryColorVariants =
+  (typeof splitComplementaryColorVariants)[number];
 export type SplitComplementary = Record<
-  "base" | "split" | "complement",
+  SplitComplementaryColorVariants,
   ColorElement
 >;
 
+export const doubleComplementaryColorVariants = [
+  "primary",
+  "secondary",
+] as const;
+export type DoubleComplementaryColorVariants =
+  (typeof doubleComplementaryColorVariants)[number];
 export type DoubleComplementary = Record<
-  "primary" | "secondary",
+  DoubleComplementaryColorVariants,
   Complementary
 >;
 
-export type Analogous = Record<
-  "left" | "leftCenter" | "center" | "rightCenter" | "right",
-  ColorElement
->;
+export const analogousColorVariants = [
+  "left",
+  "leftCenter",
+  "center",
+  "rightCenter",
+  "right",
+] as const;
+export type AnalocgousColorVariants = (typeof analogousColorVariants)[number];
+export type Analogous = Record<AnalocgousColorVariants, ColorElement>;
 
-export type Triadic = Record<"left" | "base" | "right", ColorElement>;
+export const triadicColorVariants = [
+  "primary",
+  "secondary",
+  "tertiary",
+] as const;
+export type TriadicColorVariants = (typeof triadicColorVariants)[number];
+export type Triadic = Record<TriadicColorVariants, ColorElement>;
 
-type TetradicPair = Record<"base" | "opposite", ColorElement>;
-
-export type Tetradic = Record<"primary" | "secondary", TetradicPair>;
+export const tetradicColorVariants = [
+  ...triadicColorVariants,
+  "quaternary",
+] as const;
+export type TetradicColorVariants = (typeof tetradicColorVariants)[number];
+export type Tetradic = Record<TetradicColorVariants, ColorElement>;
