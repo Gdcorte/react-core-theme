@@ -1,2 +1,3 @@
+export { default as ChartColors } from "./Charts";
 export { default as ColorCombination } from "./Combination";
-export { ColorBall, ColorRectangle, SmartColorElement } from "./Element";
+export { SmartColorElement } from "./Element";

@@ -1,16 +1,23 @@
-export const primaryHues = ["red", "blue", "yellow"] as const;
-export const secondaryHues = ["green", "orange", "violet"] as const;
-export const tertiaryHues = [
-  "purple",
-  "magenta",
-  "vermillion",
-  "amber",
-  "charteuse",
+export const chartHues = [
+  "red",
+  "vermilion",
+  "orange",
+  "yellow",
+  "grass",
+  "chartreuse",
+  "green",
+  "mint",
   "teal",
+  "cyan",
+  "cerulean",
+  "blue",
+  "indigo",
+  "purple",
+  "violet",
+  "magenta",
+  "pink",
+  "salmon",
 ] as const;
-
-const chartHues = [...primaryHues, ...secondaryHues, ...tertiaryHues] as const;
-
-export type ChartHues = typeof chartHues[number];
+export type ChartHues = (typeof chartHues)[number];
 
 export type ChartTheme = Record<ChartHues, string>;
