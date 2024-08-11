@@ -4,29 +4,26 @@ export * from "./models";
 export * from "./presets";
 
 import {
-  AlertThemes,
   AlertVariants,
   ColorCombinationVariants,
   ColorElement,
   ColorVariants,
   ElevationTheme,
   FontPreset,
-  MarginPreset,
   ThemeVariants,
   WindowSizes,
 } from "./presets";
 
-type BaseTheme<T, K> = {
-  colors: T;
+export type BaseTheme<C, Ch, Al> = {
+  colors: C;
   background: ColorElement;
   disabled: ColorElement;
-  alerts: AlertThemes | Record<string, ColorElement>;
+  alerts: Al;
   shadow: string;
   elevations: ElevationTheme;
-  fonts: FontPreset;
+  // fonts: FontPreset;
   window: WindowSizes | Record<string, number>;
-  margins: MarginPreset;
-  charts: K;
+  charts: Ch;
   presets: {
     combination: ColorCombinationVariants | string;
     color: ColorVariants | string;
@@ -34,7 +31,21 @@ type BaseTheme<T, K> = {
   };
 };
 
-type InputSettings = {
+export type CreateThemeProps = {
+  colors: {
+    base: string;
+    background: string;
+    disabled: string;
+  };
+  alerts: Record<AlertVariants, string>;
+  chartNames: readonly string[];
+  name: ColorVariants;
+  theme: ThemeVariants;
+  combination: ColorCombinationVariants;
+  window?: Partial<WindowSizes>;
+};
+
+export type InputSettings = {
   primary: string;
   background: string;
   disabled?: string;

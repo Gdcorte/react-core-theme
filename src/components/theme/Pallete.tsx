@@ -29,6 +29,11 @@ const Frame = styled.div<{ bg: string; font: string }>`
   color: ${({ font }) => font}};
 `;
 
+const ChartDisabledFrame = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
 const ChartAlertsFrame = styled.div`
   display: flex;
   flex-direction: row;
@@ -82,14 +87,17 @@ const ThemePallete: FunctionComponent<Props> = ({
       <ColorCombination base={colors.base} variant={combination} />
 
       <ChartAlertsFrame>
-        <ChartColors base={colors.base} />
+        <ChartDisabledFrame>
+          <ChartColors base={colors.base} />
 
-        <AlertFrame>
-          <AlertColors variants={alerts} />
           <DisabledFrame>
             <p>Disabled: </p>
             <SmartColorElement element={disabled} />
           </DisabledFrame>
+        </ChartDisabledFrame>
+
+        <AlertFrame>
+          <AlertColors variants={alerts} />
 
           <ElevationColors bg={colors.background} contrast={bgContrast} />
         </AlertFrame>
