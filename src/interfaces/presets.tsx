@@ -57,7 +57,12 @@ export type ColorElement = {
 // ////////////////
 // Elevation Presets
 // ////////////////
-export const elevationPresets = ["lower", "neutral", "higher"] as const;
+export const elevationPresets = [
+  "lower",
+  "neutral",
+  "medium",
+  "higher",
+] as const;
 export type ElevationVariants = (typeof elevationPresets)[number];
 
 export type ElevationTheme = Record<ElevationVariants, string>;

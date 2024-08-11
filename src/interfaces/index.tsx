@@ -12,7 +12,6 @@ import {
   ElevationTheme,
   FontPreset,
   MarginPreset,
-  ShadePreset,
   ThemeVariants,
   WindowSizes,
 } from "./presets";
@@ -22,7 +21,7 @@ type BaseTheme<T, K> = {
   background: ColorElement;
   disabled: ColorElement;
   alerts: AlertThemes | Record<string, ColorElement>;
-  shade: ShadePreset;
+  shadow: string;
   elevations: ElevationTheme;
   fonts: FontPreset;
   window: WindowSizes | Record<string, number>;

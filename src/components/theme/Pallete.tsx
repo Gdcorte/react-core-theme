@@ -12,6 +12,7 @@ import {
   AlertColors,
   ChartColors,
   ColorCombination,
+  ElevationColors,
   SmartColorElement,
 } from "../color";
 
@@ -75,6 +76,7 @@ const ThemePallete: FunctionComponent<Props> = ({
 }) => {
   const bgContrast = contrast(colors.background);
   const disabled = generateColorElement(colors.disabled);
+
   return (
     <Frame bg={colors.background} font={bgContrast} className="pallete-frame">
       <ColorCombination base={colors.base} variant={combination} />
@@ -88,6 +90,8 @@ const ThemePallete: FunctionComponent<Props> = ({
             <p>Disabled: </p>
             <SmartColorElement element={disabled} />
           </DisabledFrame>
+
+          <ElevationColors bg={colors.background} contrast={bgContrast} />
         </AlertFrame>
       </ChartAlertsFrame>
     </Frame>
