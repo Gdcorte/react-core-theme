@@ -74,11 +74,11 @@ export type ShadePreset = {
 // Alert Presets
 // ////////////////
 export const alertTypes = [
-  "success",
-  "info",
-  "neutral",
-  "warning",
   "danger",
+  "warning",
+  "info",
+  "success",
+  "neutral",
 ] as const;
 export type AlertVariants = (typeof alertTypes)[number];
 export type AlertThemes = Record<AlertVariants, ColorElement>;
