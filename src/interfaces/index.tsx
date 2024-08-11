@@ -17,9 +17,7 @@ import {
   WindowSizes,
 } from "./presets";
 
-type ChartThemes = {};
-
-type BaseTheme<T> = {
+type BaseTheme<T, K> = {
   colors: T;
   background: ColorElement;
   disabled: ColorElement;
@@ -29,7 +27,7 @@ type BaseTheme<T> = {
   fonts: FontPreset;
   window: WindowSizes | Record<string, number>;
   margins: MarginPreset;
-  charts: ChartThemes;
+  charts: K;
   presets: {
     combination: ColorCombinationVariants | string;
     color: ColorVariants | string;
