@@ -8,7 +8,11 @@ import {
   themeVariants,
   ThemeVariants,
 } from "../../interfaces";
-import { createThemeConfig } from "../../utils/bundler";
+import {
+  createThemeConfig,
+  createThemeWithDefaultPresets,
+} from "../../utils/bundler";
+import { colorComboTypeName } from "../../utils/combination";
 import ThemePallete from "./Pallete";
 
 const Frame = styled.div`
@@ -51,6 +55,29 @@ const ThemePreview: FunctionComponent<Props> = ({}) => {
       theme,
     });
   }, [name, theme, combination]);
+
+  function exportTheme() {
+    const themeObj = createThemeWithDefaultPresets({
+      name,
+      theme,
+      combination,
+    });
+
+    console.warn(themeObj);
+
+    const combinationType = colorComboTypeName(combination);
+
+    const exportableTheme = `
+      const theme: BaseTheme<${combinationType}, ChartTheme, AlertThemes> = ${JSON.stringify(
+        themeObj,
+        undefined,
+        2
+      )}
+    `;
+
+    navigator.clipboard.writeText(exportableTheme);
+    alert("Theme copied to clipboard");
+  }
 
   return (
     <Frame>
@@ -98,6 +125,8 @@ const ThemePreview: FunctionComponent<Props> = ({}) => {
             ))}
           </select>
         </div>
+
+        <button onClick={exportTheme}>Export</button>
       </Controls>
       <Preview>
         <ThemePallete {...genTheme} />

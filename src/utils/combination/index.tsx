@@ -41,6 +41,34 @@ export function colorComboPicker(
   }
 }
 
+export function colorComboTypeName(variant: ColorCombinationVariants): string {
+  switch (variant) {
+    case "analogous":
+      return "Analogous";
+
+    case "complementary":
+      return "Complementary";
+
+    case "complementary_split":
+      return "SplitComplementary";
+
+    case "complementary_double":
+      return "DoubleComplementary";
+
+    case "monochromatic":
+      return "Monochromatic";
+
+    case "tetradic":
+      return "Tetradic";
+
+    case "triadic":
+      return "Triadic";
+
+    default:
+      impossibleAction(variant, "colorComboPicker");
+  }
+}
+
 export * from "./analogous";
 export * from "./base";
 export * from "./complementary";
