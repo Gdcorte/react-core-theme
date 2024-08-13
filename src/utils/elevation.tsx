@@ -9,6 +9,7 @@ export function generateElevationTheme(background: string): ElevationTheme {
   let medium;
   let higher;
   if (hsl.lightness > 0.7) {
+    console.warn("Using light background for elevation", hsl, delta);
     lower = hslToHex({
       ...hsl,
       lightness: hsl.lightness + delta,

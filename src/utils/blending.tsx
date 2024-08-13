@@ -120,7 +120,11 @@ export function contrast(color: string): string {
     contrastHsl.lightness *= 2;
   }
   if (hsl.lightness <= 0.4) {
-    contrastHsl.lightness *= 5;
+    contrastHsl.lightness *= 4;
+  }
+
+  if (contrastHsl.lightness > 1) {
+    contrastHsl.lightness = 0.9;
   }
 
   const contrastRgb = hslToRgb(contrastHsl);
