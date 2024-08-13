@@ -1,4 +1,3 @@
-import { isString } from "../../helpers";
 import { HslColor, RgbColor, rgbKeys } from "../../interfaces";
 import { decimalToHex } from "./decimal";
 import { hexToDecimal } from "./hex";
@@ -54,11 +53,8 @@ function determineHue(color: RgbColor, max: number, chroma: number) {
   return pseudoHue;
 }
 
-export function rgbToHsl(rgb: RgbColor | string): HslColor {
+export function rgbToHsl(rgb: RgbColor): HslColor {
   // Source: https://en.wikipedia.org/wiki/HSL_and_HSV
-  if (isString(rgb)) {
-    rgb = hexToRgb(rgb);
-  }
 
   const normRgb = { ...rgb };
   const rgbVector = rgbKeys.reduce<number[]>((acc, value) => {

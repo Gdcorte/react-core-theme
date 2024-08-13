@@ -3,6 +3,13 @@
   "version": "4.0.0",
   "repository": "https://github.com/Gdcorte/react-core-theme.git",
   "homepage": "https://github.com/Gdcorte/react-core-theme#readme",
+  "main": "dist",
+  "module": "dist",
+  "files": [
+    "dist",
+    "readme.md"
+  ],
+  "types": "dist",
   "bugs": {
     "url": "https://github.com/Gdcorte/react-core-theme/issues"
   },
@@ -12,55 +19,39 @@
   "private": false,
   "peerDependencies": {
     "react": ">= 18",
-    "styled-components": ">= 5"
+    "styled-components": ">= 6"
   },
   "devDependencies": {
-    "@babel/core": "^7.20.7",
+    "@babel/core": "^7.25.2",
     "@chromatic-com/storybook": "^1.6.1",
-    "@rollup/plugin-commonjs": "^21.1.0",
-    "@rollup/plugin-node-resolve": "^13.3.0",
-    "@rollup/plugin-typescript": "10.0.1",
-    "@storybook/addon-essentials": "^8.2.8",
-    "@storybook/addon-interactions": "^8.2.8",
-    "@storybook/addon-links": "^8.2.8",
-    "@storybook/addon-onboarding": "^8.2.8",
-    "@storybook/addon-themes": "^8.2.8",
+    "@storybook/addon-essentials": "^8.2.9",
+    "@storybook/addon-interactions": "^8.2.9",
+    "@storybook/addon-links": "^8.2.9",
+    "@storybook/addon-onboarding": "^8.2.9",
+    "@storybook/addon-themes": "^8.2.9",
     "@storybook/addon-webpack5-compiler-swc": "^1.0.5",
-    "@storybook/blocks": "^8.2.8",
-    "@storybook/react": "^8.2.8",
-    "@storybook/react-vite": "^8.2.8",
-    "@storybook/test": "^8.2.8",
-    "@types/react": "^17.0.52",
-    "@types/styled-components": "^5.1.26",
-    "babel-loader": "^8.3.0",
-    "moment": "^2.29.4",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-is": "^18.2.0",
+    "@storybook/blocks": "^8.2.9",
+    "@storybook/react": "^8.2.9",
+    "@storybook/react-vite": "^8.2.9",
+    "@storybook/test": "^8.2.9",
+    "@types/react": "^18.3.3",
+    "babel-loader": "^9.1.3",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-is": "^18.3.1",
     "require-from-string": "^2.0.2",
-    "rollup": "^2.79.1",
-    "rollup-plugin-dts": "^4.2.3",
-    "storybook": "^8.2.8",
-    "styled-components": "^5.3.6",
-    "tslib": "^2.4.1",
-    "typescript": "^4.9.4",
-    "webpack": "^5.75.0"
+    "rollup": "^4.20.0",
+    "storybook": "^8.2.9",
+    "styled-components": "^6.1.12",
+    "tslib": "^2.6.3",
+    "typescript": "^5.5.4",
+    "webpack": "^5.93.0"
   },
-  "main": "dist/cjs/index.js",
-  "module": "dist/esm/index.js",
-  "files": [
-    "dist"
-  ],
-  "types": "dist/index.d.ts",
   "scripts": {
-    "dev": "CHOKIDAR_USEPOLLING=true start-storybook -p 6006 -s src --ci",
-    "build-storybook": "storybook build",
+    "dev": "rollup -c -w",
     "build": "rollup -c",
-    "build-dev": "rollup -c -w",
-    "build-test": "npm run build",
-    "audit-fix": "",
-    "release": "rollup -c && npm publish --access=public",
-    "storybook": "storybook dev -p 6006"
+    "build:sb": "storybook build",
+    "storybook": "CHOKIDAR_USEPOLLING=true storybook dev -p 6006"
   },
   "dependencies": {
     "prettier": "^3.3.3"

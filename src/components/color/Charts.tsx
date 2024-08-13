@@ -1,7 +1,7 @@
 import { FunctionComponent } from "react";
 import styled from "styled-components";
 import { chartHues, ChartTheme } from "../../interfaces";
-import { rgbToHsl } from "../../utils";
+import { hexToHsl } from "../../utils";
 import { generateChartsColor } from "../../utils/charts";
 
 const PARENT_SIZE = 250;
@@ -74,7 +74,7 @@ type Props = {
 };
 
 const ChartColors: FunctionComponent<Props> = ({ base }) => {
-  const hsl = rgbToHsl(base);
+  const hsl = hexToHsl(base);
 
   const chartTheme = generateChartsColor<ChartTheme>(
     0,
