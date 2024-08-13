@@ -7,7 +7,13 @@ export type ThemeVariants = (typeof themeVariants)[number];
 // /////////////////
 // Color Presets
 // /////////////////
-export const colorVariants = ["green", "yellow", "blue", "pink"] as const;
+export const colorVariants = [
+  "green",
+  "yellow",
+  "blue",
+  "pink",
+  "brown",
+] as const;
 export type ColorVariants = (typeof colorVariants)[number];
 
 // /////////////////

@@ -81,6 +81,7 @@ export function createThemeConfig({
     pink: 300,
     blue: 240,
     yellow: 60,
+    brown: 30,
   };
   const baseColor = hslToHex({
     hue: hueMap[name],
@@ -143,15 +144,3 @@ export function createThemeWithDefaultPresets<C>({
 
   return createTheme<C, ChartTheme, AlertThemes>(themeConfig);
 }
-
-// const baseBackgrounds: ThemeTypesBase = {
-//   light: "#fefefe",
-//   dark: "#2a2a2a",
-// };
-
-// const baseAlerts: BaseAlertColors = {
-//   info: "#70bbfd",
-//   success: "#4ce1b6",
-//   warning: "#f6da6e",
-//   danger: "#ff4861",
-// };
