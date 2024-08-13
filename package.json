@@ -1,7 +1,10 @@
 {
   "name": "@gdcorte/react-core-theme",
   "version": "4.0.0",
-  "repository": "https://github.com/Gdcorte/react-core-theme.git",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Gdcorte/react-core-theme.git"
+  },
   "homepage": "https://github.com/Gdcorte/react-core-theme#readme",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",

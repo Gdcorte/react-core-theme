@@ -1,0 +1,60 @@
+name: Publish Package to npmjs
+
+on:
+  push:
+    branches: [published]
+
+jobs:
+  tag:
+    name: Create new tag
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Get code
+        uses: actions/checkout@v4
+
+      - name: Create Tag
+        run: |
+          tagVersion=v$(cat package.json | jq '.version' -r)
+          git config user.name "auto-publisher"
+          git tag $tagVersion
+          git push --tags
+        shell: bash
+
+  build:
+    needs: tag
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Install pnpm
+        run: npm instal -i pnpm
+
+      - name: install dependencies
+        run: pnpm install
+
+      - name: make build
+        run: pnpm build
+
+  publish_npm:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+
+    steps:
+      - name: Setup .npmrc
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20.x"
+          registry-url: "https://registry.npmjs.org"
+
+      - name: Publish to NPM
+        run: npm publish --provenance --access public
+        shell: bash
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
