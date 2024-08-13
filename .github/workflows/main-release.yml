@@ -32,7 +32,7 @@ jobs:
 
     steps:
       - name: Install pnpm
-        run: npm instal -i pnpm
+        run: npm i pnpm --global
 
       - name: install dependencies
         run: pnpm install
