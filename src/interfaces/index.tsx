@@ -37,12 +37,18 @@ export type CreateThemeProps = {
     background: string;
     disabled: string;
   };
-  alerts: Record<AlertVariants, string>;
+  alerts: Record<string, string>;
   chartNames: readonly string[];
   name: ColorVariants;
   theme: ThemeVariants;
   combination: ColorCombinationVariants;
   window?: Partial<WindowSizes>;
+};
+
+export type CreateThemeDefaultPresets = {
+  name: ColorVariants;
+  theme: ThemeVariants;
+  combination: ColorCombinationVariants;
 };
 
 export type InputSettings = {
