@@ -2,14 +2,14 @@
   "compilerOptions": {
     /* Visit https://aka.ms/tsconfig.json to read more about this file */
     "target": "ESNext",
-    "module": "ESNext", 
+    "module": "ESNext",
     "esModuleInterop": true,
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
     "forceConsistentCasingInFileNames": true,
     "noFallthroughCasesInSwitch": true,
-    "jsx": "react-jsx", 
+    "jsx": "react-jsx",
     "declaration": true,
     "declarationDir": "types",
     "sourceMap": true,
@@ -19,6 +19,11 @@
     "isolatedModules": true,
     "allowSyntheticDefaultImports": true,
     "emitDeclarationOnly": true,
+    "baseUrl": ".",
+    "paths": {
+      "./*": ["./*"]
+    }
   },
   "include": ["styled.d.ts", "**/*.ts", "**/*.tsx"],
+  "exclude": ["coverage", "config", "dist", "node_modules/**"]
 }

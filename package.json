@@ -3,13 +3,12 @@
   "version": "4.0.0",
   "repository": "https://github.com/Gdcorte/react-core-theme.git",
   "homepage": "https://github.com/Gdcorte/react-core-theme#readme",
-  "main": "dist",
-  "module": "dist",
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
+  "types": "dist/index.d.ts",
   "files": [
-    "dist",
-    "readme.md"
+    "dist"
   ],
-  "types": "dist",
   "bugs": {
     "url": "https://github.com/Gdcorte/react-core-theme/issues"
   },
@@ -24,6 +23,9 @@
   "devDependencies": {
     "@babel/core": "^7.25.2",
     "@chromatic-com/storybook": "^1.6.1",
+    "@rollup/plugin-json": "^6.1.0",
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "@rollup/plugin-typescript": "^11.1.6",
     "@storybook/addon-essentials": "^8.2.9",
     "@storybook/addon-interactions": "^8.2.9",
     "@storybook/addon-links": "^8.2.9",
@@ -41,6 +43,9 @@
     "react-is": "^18.3.1",
     "require-from-string": "^2.0.2",
     "rollup": "^4.20.0",
+    "rollup-plugin-dts": "^6.1.1",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
+    "rollup-plugin-tsconfig-paths": "^1.5.2",
     "storybook": "^8.2.9",
     "styled-components": "^6.1.12",
     "tslib": "^2.6.3",
@@ -49,6 +54,7 @@
   },
   "scripts": {
     "dev": "rollup -c -w",
+    "test:local": "pnpm pack",
     "build": "rollup -c",
     "build:sb": "storybook build",
     "storybook": "CHOKIDAR_USEPOLLING=true storybook dev -p 6006"
