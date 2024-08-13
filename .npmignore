@@ -1,0 +1,6 @@
+src/** */
+node_modules/
+node_modules/.bin/
+.*
+!readme.md
+!package.json
