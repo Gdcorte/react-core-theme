@@ -1,6 +1,6 @@
 {
   "name": "@gdcorte/react-core-theme",
-  "version": "4.0.0",
+  "version": "4.0.1",
   "repository": {
     "type": "git",
     "url": "https://github.com/Gdcorte/react-core-theme.git"
@@ -41,6 +41,7 @@
     "@storybook/test": "^8.2.9",
     "@types/react": "^18.3.3",
     "babel-loader": "^9.1.3",
+    "prettier": "^3.3.3",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-is": "^18.3.1",
@@ -61,8 +62,5 @@
     "build": "rollup -c",
     "build:sb": "storybook build",
     "storybook": "CHOKIDAR_USEPOLLING=true storybook dev -p 6006"
-  },
-  "dependencies": {
-    "prettier": "^3.3.3"
   }
 }

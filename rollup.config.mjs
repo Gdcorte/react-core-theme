@@ -4,7 +4,8 @@ import peerDepsExternal from "rollup-plugin-peer-deps-external";
 
 import nodeResolve from "@rollup/plugin-node-resolve";
 import tsConfigPaths from "rollup-plugin-tsconfig-paths";
-import pkg from "./package.json" assert { type: "json" };
+
+import pkg from "./package.json" with { type: "json" };
 
 const testFiles = [
   "coverage",
