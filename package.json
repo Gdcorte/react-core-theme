@@ -1,6 +1,6 @@
 {
   "name": "@gdcorte/react-core-theme",
-  "version": "4.0.3",
+  "version": "4.0.4",
   "repository": {
     "type": "git",
     "url": "https://github.com/Gdcorte/react-core-theme.git"
@@ -51,7 +51,6 @@
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "rollup-plugin-tsconfig-paths": "^1.5.2",
     "storybook": "^8.2.9",
-    "styled-components": "^6.1.12",
     "tslib": "^2.6.3",
     "typescript": "^5.5.4",
     "webpack": "^5.93.0"
