@@ -63,7 +63,7 @@ const ThemePreview: FunctionComponent<Props> = ({}) => {
       combination,
     });
 
-    console.warn(themeObj);
+    console.info(themeObj);
 
     const combinationType = colorComboTypeName(combination);
 
