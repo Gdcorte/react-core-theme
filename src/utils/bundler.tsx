@@ -3,13 +3,13 @@ import {
   BaseTheme,
   chartHues,
   ChartTheme,
-  ColorVariants,
   CreateThemeDefaultPresets,
   CreateThemeProps,
 } from "../interfaces";
 import { generateAlertTheme } from "./alerts";
 import { contrast } from "./blending";
 import { generateChartsColor } from "./charts";
+import { getDefaultColorCode, getDefaultThemeBg } from "./colors";
 import { colorComboPicker, generateColorElement } from "./combination";
 import { hexToHsl, hslToHex } from "./conversion";
 import { generateElevationTheme } from "./elevation";
@@ -62,33 +62,19 @@ export function createThemeConfig({
   const saturation = 0.8;
   let baseLuminance;
   let alertLuminance;
-  let background;
   let disabled;
 
   if (theme === "light") {
     baseLuminance = 0.3;
     alertLuminance = 0.4;
-    background = "#eaeaea";
     disabled = "#cccccc";
   } else {
     baseLuminance = 0.8;
     alertLuminance = 0.65;
-    background = "#2a2a2a";
     disabled = "#555555";
   }
-  const hueMap: Record<ColorVariants, number> = {
-    green: 120,
-    pink: 300,
-    blue: 240,
-    yellow: 60,
-    brown: 30,
-  };
-  const baseColor = hslToHex({
-    hue: hueMap[name],
-    saturation: saturation,
-    lightness: baseLuminance,
-    alpha: 255,
-  });
+
+  const baseColor = getDefaultColorCode(name, theme);
 
   return {
     name: name,
@@ -96,7 +82,7 @@ export function createThemeConfig({
     combination: combination,
     colors: {
       base: baseColor,
-      background,
+      background: getDefaultThemeBg(theme),
       disabled,
     },
     alerts: {
