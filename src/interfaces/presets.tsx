@@ -166,3 +166,12 @@ export const tetradicColorVariants = [
 ] as const;
 export type TetradicColorVariants = (typeof tetradicColorVariants)[number];
 export type Tetradic = Record<TetradicColorVariants, ColorElement>;
+
+export type ColorCombinationTypes =
+  | Tetradic
+  | Triadic
+  | Analogous
+  | DoubleComplementary
+  | Monochromatic
+  | Complementary
+  | SplitComplementary;

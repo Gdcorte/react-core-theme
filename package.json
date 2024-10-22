@@ -1,6 +1,6 @@
 {
   "name": "@gdcorte/react-core-theme",
-  "version": "4.1.0",
+  "version": "4.2.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/Gdcorte/react-core-theme.git"
@@ -53,6 +53,8 @@
     "storybook": "^8.2.9",
     "tslib": "^2.6.3",
     "typescript": "^5.5.4",
+    "vite": "^5.4.9",
+    "vite-tsconfig-paths": "^5.0.1",
     "webpack": "^5.93.0"
   },
   "scripts": {
