@@ -21,7 +21,7 @@
     "emitDeclarationOnly": true,
     "baseUrl": ".",
     "paths": {
-      "./*": ["./*"]
+      "@/*": ["./*"]
     }
   },
   "include": ["styled.d.ts", "**/*.ts", "**/*.tsx"],
